@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Submit Review</title>
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body>
+    <header th:insert="Fragments.html :: header"></header>
+    <nav th:insert="Fragments.html :: nav"></nav>
+
+<main>
+    <h1>Submit Review</h1>
+    <div>
+        <div class="ReviewInput">
+            <label >Review: </label>
+            <input type="text">
+            
+        </div>
+        <br>
+        <div class="ReviewInput">
+            <label>Rating: </label>
+            <input type="text">
+        </div>
+        <div class="SubmitButton">
+            <button type="submit">Submit Review</button>
+        </div>
+
+<!--&lt;!&ndash;        <form th:action="'/books/'+${inBook.id}" method="POST">&ndash;&gt;-->
+<!--            <label for="review">Enter Review</label><br>-->
+<!--            &lt;!&ndash;        <input type="text" id="review" name="review" placeholder="Great book ever"><br>&ndash;&gt;-->
+<!--            <textarea id="review" name="review" rows="4" cols="50"></textarea>-->
+<!--            <br>-->
+<!--            <label for="starRating">Star rating</label><br>-->
+<!--            <input type="text" id="starRating" name="starRating" placeholder="4 star truck!"><br>-->
+<!--            <input name = "foodTruckId" type="hidden" th:value="${foodTruck.foodTruckId}">-->
+
+
+
+            <input type="submit" value="Submit">
+        </form>
+
+    </div>
+    
+</main>
+
+
+</body>
+</html>

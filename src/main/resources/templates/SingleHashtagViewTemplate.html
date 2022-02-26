@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hashtag</title>
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body>
+    <header th:insert="Fragments.html :: header"></header>
+    <nav th:insert="Fragments.html :: nav"></nav>
+
+<main>
+    <h1 th:text="${hashtagName}">Hashtags</h1>
+    
+    
+    <section class = "singleHashtagPage" >
+        <ul>
+
+            <li th:each="currentFoodTruck: ${hashtag.foodTrucks}"><a th:href="'/FoodTruckTemplate/' + ${currentFoodTruck.foodTruckId}"><img class="foodTruckImgList" th:src="${currentFoodTruck.truckImage}"></a></li>
+
+            
+        </ul>
+    </section>
+
+    
+
+</main>
+    <footer th:insert="Fragments.html :: footer"></footer>
+</body>
+</html>

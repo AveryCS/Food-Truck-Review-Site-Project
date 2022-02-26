@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>FoodTruck</title>
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+<header th:insert="Fragments.html :: header"></header>
+<nav th:insert="Fragments.html :: nav"></nav>
+
+
+
+<main>
+    <div class="FoodTruckDetailsAndPhotos">
+        <div>
+            <img th:src="${foodTruck.truckImage}">
+        </div>
+        <div>
+            <h1 th:text="${foodTruck.name} "></h1>
+            <div>
+                <br>
+                <a class="WebsiteButton" th:href="${foodTruck.website}">WEBSITE</a>
+            </div>
+            <div>
+                <br>
+                <label>Order Ahead: </label> <span th:text="${orderAhead}">Order ahead</span>
+            </div>
+            <ul class="HashtagListFoodTruckPage">
+                <li th:each="hashtags: ${foodTruck.hashtags}" th:text="${hashtags.hashtag}"></li>
+            </ul>
+            <h4>Average Rating <img th:src="'/img/star'+${foodTruck.averageRating}+'.png'"></h4>
+        </div>
+    </div>
+
+
+
+<!--    this is submit review-->
+    <div class="reviewForm">
+        <h3>Customer Reviews:</h3>
+        <div class="ActualReviews">
+            <ul>
+                <li th:each="review: ${foodTruck.reviews}"><img class="starClass" th:src="'/img/star'+${review.starRating}+'.png'"><p th:text="${review.review}"></p> </li>
+            </ul>
+        </div>
+        <div class="ReviewBoxes">
+            <form th:action="'/FoodTruckTemplate/'+${foodTruckId}" method="POST">
+                <label for="starRating">Star rating:</label><br>
+                <input type="number" min="1" max="5" id="starRating" name="starRating" value = "3" placeholder="4 star truck!">
+                <br>
+                <label for="review">Enter Review:</label><br>
+                <textarea id="review" name="review" rows="4" cols="50" maxlength="200"></textarea>
+                <input name = "foodTruckId" type="hidden" th:value="${foodTruck.foodTruckId}">
+                <br>
+                <input type="submit" value="Submit Review">
+                <br>
+                <br>
+            </form>
+        </div>
+    </div>
+
+
+    <form class="HashtagForm" th:action="|/SubmitHashtag|" method="POST">
+        <div class="AddHashtag">
+            <label >Add Hashtag: </label>
+            <input name = "hashtag" type="text">
+            <input name = "foodTruckId" type="hidden" th:value="${foodTruck.foodTruckId}">
+        </div>
+        <div class="SubmitButton">
+            <button type="submit">Submit Hashtag</button>
+        </div>
+    </form>
+    <footer th:insert="Fragments.html :: footer"></footer>
+</main>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Food Truck List</title>
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel=“preconnect” href=“https://fonts.googleapis.com”>
+    <link rel=“preconnect” href=“https://fonts.gstatic.com” crossorigin>
+    <link href=“https://fonts.googleapis.com/css2?family=Raleway:wght@100;400;700&display=swap” rel=“stylesheet”>
+
+</head>
+<body>
+<header th:insert="Fragments.html :: header"></header>
+<nav th:insert="Fragments.html :: nav"></nav>
+
+
+<main>
+    <section class = "FoodTruckList">
+        <ul>
+            <li th:each="tempCategory: ${categories}"><a th:href="'/CategoriesTemplate/SingleCategoryTruckListTemplate/'+${tempCategory.categoryId}"><img class="foodTruckImgList" th:src="${tempCategory.categoryImage}"></a></li>
+        </ul>
+    </section>
+
+</main>
+
+<footer th:insert="Fragments.html :: footer"></footer>
+</body>
+</html>

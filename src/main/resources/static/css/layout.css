@@ -1,0 +1,161 @@
+*{
+    box-sizing: border-box;
+}
+ body,html{
+    margin: 0px;
+    height: 100%;
+ }
+h1{
+    text-align: center;
+    margin-bottom: 0;
+
+}
+h2{
+    text-align: center;
+    color: #646464;
+}
+h3{
+    margin-top: 0;
+}
+.topBanner {
+    background-color: #e7c346;
+    width: 100%;
+    border-style: solid none;
+    border-color: grey;
+    margin-top: 0;
+
+}
+nav>ul{
+    display:flex;
+    justify-content: center;
+    justify-content: space-evenly;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    list-style-type: none;
+
+}
+nav{
+    width: 100%;
+    margin: 0px;
+}
+
+.FoodTruckDetailsAndPhotos {
+    /* food truck prototype */
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    text-align: center;
+    justify-content: flex-start;
+    background-color: #fefefe;
+    margin: 0em 15% 0em 15%;
+    width: 70%;
+    justify-self: center;
+    height: 100%;
+
+}
+.FoodTruckList{
+    background-color: #fefefe;
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0em 15% 0em 15%;
+    width: 70%;
+    justify-self: center;
+    height: 100%;
+
+}
+.FoodTruckList ul{
+    margin-top: 1em;
+}
+main{
+    height: 100%;
+}
+.ReviewInput {
+    text-align: center;
+}
+
+.AddHashtag{
+    text-align: center;
+    padding-top: 1em;
+}
+
+.SubmitButton{
+    text-align: center;
+    padding-top: 1em;
+    padding-bottom: 3em;
+}
+.foodTruckImgList{
+    width: 200px;
+    border-radius: 25px;
+
+}
+section>ul{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+    list-style-type: none;
+    justify-content: space-around;
+    margin: 5px;
+    padding-inline-start: 0px
+}
+/* All hashtags */
+.HashtagList>ul {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    text-direction: none;
+    list-style-type: none;
+}
+.reviewForm {
+    text-align: center;
+     background-color: #fefefe;
+     width: 70%;
+     margin: 0em 15% 0em 15%;
+     justify-self: center;
+     border: 1px solid grey;
+     border-radius: 5px;
+}
+.ActualReviews>ul>li {
+    display: flex;
+    flex-direction: column;
+    max-width: 200px 200px;
+    text-align: center;
+
+}
+.AvgStarPhoto {
+    height: 1em;
+}
+.HashtagList>li{
+    list-style-type: none;
+}
+
+.ReviewBoxes {
+    display: flex;
+    justify-content: center;
+}
+
+.WebsiteButton {
+   text-decoration: none;
+   font-size: 1em;
+   padding: 5px;
+   border: 1px solid grey;
+   border-radius: 5px;
+   background-color: #e7c346;
+   color: white;
+
+}
+
+.WebsiteButton:visited{
+    color: white;
+}
+.HashtagForm {
+    background-color: #fefefe;
+    width: 70%;
+     margin: 0em 15% 0em 15%;
+     justify-self: center;
+}
+
+
+
+
+
+

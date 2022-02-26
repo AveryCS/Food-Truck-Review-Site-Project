@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Hashtag</title>
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body>
+
+<header th:insert="Fragments.html :: header"></header>
+
+<nav th:insert="Fragments.html :: nav"></nav>
+
+<main>
+    <h1>All Hashtags</h1>
+    <section class = "HashtagList">
+        <ul>
+
+            <li th:each="tempHashtag : ${hashtags}"><a th:href="|/SingleHashtagViewTemplate/${tempHashtag.hashtagId}|" th:text="${tempHashtag.hashtag}"></a></li>
+
+        </ul>
+    </section>
+
+</main>
+
+<footer th:insert="Fragments.html :: footer"></footer>
+</body>
+</html>

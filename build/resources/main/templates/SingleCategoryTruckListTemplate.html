@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Food Truck List</title>
+    <link rel="stylesheet" href="/css/layout.css">
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+<body>
+    <header th:insert="Fragments.html :: header"></header>
+    <nav th:insert="Fragments.html :: nav"></nav>
+    <h2 th:text="${categoryName}">Truck Category</h2>
+<main>
+    <section class = "FoodTruckList">
+        <ul>
+
+            <li th:each="currentFoodTruck: ${category.foodTrucks}"><a th:href="'/FoodTruckTemplate/' + ${currentFoodTruck.foodTruckId}"><img class="foodTruckImgList" th:src="${currentFoodTruck.truckImage}"></a></li>
+
+        </ul>
+    </section>
+
+</main>
+
+    <footer th:insert="Fragments.html :: footer"></footer>
+</body>
+</html>
