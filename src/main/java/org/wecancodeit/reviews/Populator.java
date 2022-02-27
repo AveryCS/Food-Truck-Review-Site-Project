@@ -57,13 +57,13 @@ public class Populator implements CommandLineRunner {
         categoryRepo.save(category1);
         Category category2 = new Category("Seafood", "/img/seafood.jpg", foodTruck4);
         categoryRepo.save(category2);
-        Category category3 = new Category("Mexican", "/img/Mexican.jpg", foodTruck1, foodTruck6);
+        Category category3 = new Category("Mexican", "/img/mexican.jpg", foodTruck1, foodTruck6);
         categoryRepo.save(category3);
-        Category category4 = new Category("Mediterranean", "/img/mediterranean.jpg", foodTruck5, foodTruck11);
+        Category category4 = new Category("Mediterranean", "/img/Mediterranean.jpg", foodTruck5, foodTruck11);
         categoryRepo.save(category4);
-        Category category5 = new Category("Sweet Treats", "/img/SweetTreats.jpg", foodTruck12, foodTruck13);
+        Category category5 = new Category("Sweet Treats", "/img/sweettreats.jpg", foodTruck12, foodTruck13);
         categoryRepo.save(category5);
-        Category category6 = new Category("American", "/img/American.jpg", foodTruck7, foodTruck8, foodTruck9);
+        Category category6 = new Category("American", "/img/american.jpg", foodTruck7, foodTruck8, foodTruck9);
         categoryRepo.save(category6);
         Category category7 = new Category("European", "/img/european.jpg", foodTruck2);
         categoryRepo.save(category7);
@@ -71,7 +71,7 @@ public class Populator implements CommandLineRunner {
         categoryRepo.save(category8);
         Category category9 = new Category("Asian", "/img/asian.jpg", foodTruck3);
         categoryRepo.save(category9);
-        Category category10 = new Category("Middle Eastern", "/img/middleEastern.jpg", foodTruck14);
+        Category category10 = new Category("Middle Eastern", "/img/middleeastern.jpg", foodTruck14);
         categoryRepo.save(category10);
         Category category11 = new Category("Soul Food", "/img/soulFood.jpg", foodTruck10);
         categoryRepo.save(category11);
