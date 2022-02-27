@@ -73,7 +73,7 @@ public class Populator implements CommandLineRunner {
         categoryRepo.save(category9);
         Category category10 = new Category("Middle Eastern", "/img/middleeastern.jpg", foodTruck14);
         categoryRepo.save(category10);
-        Category category11 = new Category("Soul Food", "/img/soulFood.jpg", foodTruck10);
+        Category category11 = new Category("Soul Food", "/img/soulfood.jpg", foodTruck10);
         categoryRepo.save(category11);
 
         Hashtag hashtag1 = new Hashtag("#NomNom", foodTruck1,foodTruck2);
