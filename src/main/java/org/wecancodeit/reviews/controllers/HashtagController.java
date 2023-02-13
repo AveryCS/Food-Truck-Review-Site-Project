@@ -39,8 +39,9 @@ public class HashtagController {
 
     @PostMapping("/SubmitHashtag")
     public String addHashtag(@RequestParam String userInputHashtag, @RequestParam Long foodTruckId) {
-        if(!isValidHashtag(userInputHashtag)){
-            throw new IllegalArgumentException("Hashtags must begin with a # sign and be less than 20 characters ");
+        if (!isValidHashtag(userInputHashtag)) {
+            return "InvalidHashtagTemplate";
+
         }
 
         FoodTruck foodTruck = foodTruckRepo.findById(foodTruckId).get();
@@ -67,10 +68,10 @@ public class HashtagController {
         hashtagRepo.save(hashtag);
     }
 
-    private boolean isValidHashtag(String userInputHashtag){
+    private boolean isValidHashtag(String userInputHashtag) {
 
         int count = StringUtils.countOccurrencesOf(userInputHashtag, "#");
-               return count ==1 &&  userInputHashtag.charAt(0) =='#' && userInputHashtag.length() <20;
+        return count == 1 && userInputHashtag.charAt(0) == '#' && userInputHashtag.length() < 26;
 
 //
     }
