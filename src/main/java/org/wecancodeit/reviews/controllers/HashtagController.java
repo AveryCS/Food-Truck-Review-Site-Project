@@ -2,6 +2,7 @@ package org.wecancodeit.reviews.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,9 +40,9 @@ public class HashtagController {
     @PostMapping("/SubmitHashtag")
     public String addHashtag(@RequestParam String userInputHashtag, @RequestParam Long foodTruckId) {
         if(!isValidHashtag(userInputHashtag)){
-            throw new IllegalArgumentException("Only one hashtag can be submitted at a time. Please try again");
+            throw new IllegalArgumentException("Hashtags must begin with a # sign and be less than 20 characters ");
         }
-        
+
         FoodTruck foodTruck = foodTruckRepo.findById(foodTruckId).get();
         Optional<Hashtag> hashtag = hashtagRepo.findByHashtagIgnoreCase(userInputHashtag);
         if (hashtag.isPresent() && !hashtagIsLinkedToFoodTruck(hashtag.get(), foodTruck)) {
@@ -67,8 +68,11 @@ public class HashtagController {
     }
 
     private boolean isValidHashtag(String userInputHashtag){
-        String [] check = userInputHashtag.split("#");
-        return check.length <2;
+
+        int count = StringUtils.countOccurrencesOf(userInputHashtag, "#");
+               return count ==1 &&  userInputHashtag.charAt(0) =='#' && userInputHashtag.length() <20;
+
+//
     }
 
 }

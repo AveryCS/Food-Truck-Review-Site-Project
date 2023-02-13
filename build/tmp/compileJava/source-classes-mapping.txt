@@ -1,13 +1,13 @@
-org/wecancodeit/reviews/controllers/HashtagController.java
- org.wecancodeit.reviews.controllers.HashtagController
+org/wecancodeit/reviews/entities/FoodTruck.java
+ org.wecancodeit.reviews.entities.FoodTruck
 org/wecancodeit/reviews/controllers/ReviewController.java
  org.wecancodeit.reviews.controllers.ReviewController
 org/wecancodeit/reviews/entities/Review.java
  org.wecancodeit.reviews.entities.Review
 org/wecancodeit/reviews/repos/FoodTruckRepository.java
  org.wecancodeit.reviews.repos.FoodTruckRepository
-org/wecancodeit/reviews/entities/FoodTruck.java
- org.wecancodeit.reviews.entities.FoodTruck
+org/wecancodeit/reviews/Populator.java
+ org.wecancodeit.reviews.Populator
 org/wecancodeit/reviews/controllers/FoodTruckController.java
  org.wecancodeit.reviews.controllers.FoodTruckController
 org/wecancodeit/reviews/repos/CategoryRepository.java
@@ -24,5 +24,5 @@ org/wecancodeit/reviews/entities/Category.java
  org.wecancodeit.reviews.entities.Category
 org/wecancodeit/reviews/repos/HashtagRepository.java
  org.wecancodeit.reviews.repos.HashtagRepository
-org/wecancodeit/reviews/Populator.java
- org.wecancodeit.reviews.Populator
+org/wecancodeit/reviews/controllers/HashtagController.java
+ org.wecancodeit.reviews.controllers.HashtagController
