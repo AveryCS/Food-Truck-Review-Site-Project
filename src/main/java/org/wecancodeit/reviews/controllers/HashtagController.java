@@ -23,11 +23,6 @@ public class HashtagController {
         this.foodTruckRepo = foodTruckRepo;
     }
 
-//    @RequestMapping("/AllHashtagsTemplate")
-//    public String showAllHashtagsTemplate(Model model){
-//        model.addAttribute("hashtags", hashtagRepo.findAll());
-//        return "AllHashtagsTemplate";
-//    }
     @RequestMapping("/AllHashtagsTemplate")
     public String showAllHashtagTemplate(Model model) {
         model.addAttribute("hashtags", hashtagRepo.findAll());
@@ -41,24 +36,39 @@ public class HashtagController {
         return "SingleHashtagViewTemplate";
     }
 
-
     @PostMapping("/SubmitHashtag")
-    public String addHashtag(@RequestParam String hashtag, @RequestParam Long foodTruckId) {
-        FoodTruck theFoodTruck = foodTruckRepo.findById(foodTruckId).get();
-
-        Optional<Hashtag> tempHashtag = hashtagRepo.findByHashtagIgnoreCase(hashtag);
-        if(tempHashtag.isPresent()){
-            if(!tempHashtag.get().containsFoodTruck(theFoodTruck)){
-                tempHashtag.get().addFoodTruck(theFoodTruck);
-                hashtagRepo.save(tempHashtag.get());
-            }
+    public String addHashtag(@RequestParam String userInputHashtag, @RequestParam Long foodTruckId) {
+        if(!isValidHashtag(userInputHashtag)){
+            throw new IllegalArgumentException("Only one hashtag can be submitted at a time. Please try again");
         }
-        else {
-            Hashtag theHashtag = new Hashtag(hashtag, theFoodTruck);
-            hashtagRepo.save(theHashtag);
+        
+        FoodTruck foodTruck = foodTruckRepo.findById(foodTruckId).get();
+        Optional<Hashtag> hashtag = hashtagRepo.findByHashtagIgnoreCase(userInputHashtag);
+        if (hashtag.isPresent() && !hashtagIsLinkedToFoodTruck(hashtag.get(), foodTruck)) {
+            linkFoodTruckToHashtag(hashtag.get(), foodTruck);
+        } else {
+            createNewHashtag(userInputHashtag, foodTruck);
         }
         return "redirect:/AllHashtagsTemplate";
     }
 
+    private boolean hashtagIsLinkedToFoodTruck(Hashtag tempHashtag, FoodTruck foodTruck) {
+        return tempHashtag.containsFoodTruck(foodTruck);
+    }
+
+    private void linkFoodTruckToHashtag(Hashtag tempHashtag, FoodTruck foodTruck) {
+        tempHashtag.addFoodTruck(foodTruck);
+        hashtagRepo.save(tempHashtag);
+    }
+
+    private void createNewHashtag(String userInputHashtag, FoodTruck foodTruck) {
+        Hashtag hashtag = new Hashtag(userInputHashtag, foodTruck);
+        hashtagRepo.save(hashtag);
+    }
+
+    private boolean isValidHashtag(String userInputHashtag){
+        String [] check = userInputHashtag.split("#");
+        return check.length <2;
+    }
 
 }
