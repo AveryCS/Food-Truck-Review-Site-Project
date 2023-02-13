@@ -36,14 +36,18 @@ public class HashtagController {
         model.addAttribute("hashtagName", hashtagRepo.findById(hashtagId).get().getHashtag());
         return "SingleHashtagViewTemplate";
     }
-
+/*
+*This method takes a user's hashtag and food truck and first checks to see if the hashtag is valid.
+*  If the hashtag is not valid, it shows the user an error message.
+* If the hashtag is valid, it will then check to see if it already exists. If it does exist, it will link the
+* user's food truck to the existing hashtag.
+* If the hashtag does not exist, it will create a new hashtag and save it in the hashtag repo.
+* */
     @PostMapping("/SubmitHashtag")
     public String addHashtag(@RequestParam String userInputHashtag, @RequestParam Long foodTruckId) {
         if (!isValidHashtag(userInputHashtag)) {
             return "InvalidHashtagTemplate";
-
         }
-
         FoodTruck foodTruck = foodTruckRepo.findById(foodTruckId).get();
         Optional<Hashtag> hashtag = hashtagRepo.findByHashtagIgnoreCase(userInputHashtag);
         if (hashtag.isPresent() && !hashtagIsLinkedToFoodTruck(hashtag.get(), foodTruck)) {
@@ -69,11 +73,9 @@ public class HashtagController {
     }
 
     private boolean isValidHashtag(String userInputHashtag) {
-
         int count = StringUtils.countOccurrencesOf(userInputHashtag, "#");
         return count == 1 && userInputHashtag.charAt(0) == '#' && userInputHashtag.length() < 26;
 
-//
     }
 
 }
