@@ -80,7 +80,7 @@ public class HashtagController {
         String regexVerifyHashtag = "[#]{1}+[A-Za-z0-9]{1,25}";
         Pattern pattern = Pattern.compile(regexVerifyHashtag);
         Matcher matcher = pattern.matcher(userInputHashtag);
-        return  matcher.matches() ;
+        return  matcher.matches();
     }
 
 }
