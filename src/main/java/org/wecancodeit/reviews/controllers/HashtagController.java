@@ -17,6 +17,7 @@ import java.util.regex.Matcher;
 
 import java.util.Optional;
 
+//Code snippet begins here and ends on line 86
 @Controller
 public class HashtagController {
     private HashtagRepository hashtagRepo;
@@ -40,7 +41,7 @@ public class HashtagController {
         return "SingleHashtagViewTemplate";
     }
 
-    //Code snippet begins here and ends on line 86
+
     /*
      * This method takes a user's hashtag and food truck and first checks to see if the hashtag is valid.
      * If the hashtag is not valid, it shows the user an error message.
